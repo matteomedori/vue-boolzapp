@@ -114,7 +114,16 @@
           <!-- /header of right-part -->
 
           <!-- message zone of right-part -->
-          <div class="message-zone"></div>
+          <div class="message-zone">
+            <ul class="container-message">
+              <li
+                v-for="message in contacts[0].messages"
+                :class="message.status === 'sent' ? 'sent' : 'received'"
+              >
+                {{message.message}}
+              </li>
+            </ul>
+          </div>
           <!-- /message zone of right-part -->
 
           <!-- footer of right-part -->
