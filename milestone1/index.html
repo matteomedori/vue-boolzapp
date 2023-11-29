@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boolzapp</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- /Font Awesome -->
+
+    <!-- Google Fonts: Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- /Google Fonts: Lato -->
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- /My CSS -->
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <!-- left part of the container -->
+        <div class="left-part">
+          <!-- header of left-part -->
+          <header>
+            <!-- header left: img + name -->
+            <div class="left-header">
+              <div class="my-component-rounded">
+                <img src="img/avatar_io.jpg" alt="img1" />
+              </div>
+              <div><strong>Nome Utente</strong></div>
+            </div>
+            <!-- /header left: img + name -->
+
+            <!-- header right: list of fonts awesome -->
+            <ul>
+              <li><i class="fa-solid fa-circle-notch"></i></li>
+              <li><i class="fa-solid fa-message"></i></li>
+              <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+            </ul>
+            <!-- /header right: list of fonts awesome -->
+          </header>
+          <!-- /header of left-part -->
+
+          <!-- blue notification of left-part -->
+          <div class="notification">
+            <div class="my-component-rounded">
+              <i class="fa-solid fa-bell-slash"></i>
+            </div>
+            <div>
+              <div><strong>Ricevi notifiche di nuovi messaggi</strong></div>
+              <div class="underline">Attiva notifiche desktop</div>
+            </div>
+          </div>
+          <!-- /blue notification of left-part -->
+
+          <!-- search input of left-part -->
+          <div class="search-input">
+            <span class="input-group-text"
+              ><i class="fa-solid fa-magnifying-glass"></i
+            ></span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Cerca o inizia una nuova chat"
+            />
+          </div>
+          <!-- /search input of left-part -->
+
+          <!-- list of contacts -->
+          <ul class="contact-list">
+            <li v-for="contact in contacts">
+              <div class="my-component-rounded">
+                <img :src="contact.avatar" alt="" />
+              </div>
+              <h2>{{contact.name}}</h2>
+            </li>
+          </ul>
+          <!-- /list of contacts -->
+        </div>
+        <!-- /left part of the container -->
+
+        <!-- right part of the container -->
+        <div class="right-part">
+          <!-- header of right-part -->
+          <header>
+            <div class="left-header">
+              <div class="my-component-rounded">
+                <img src="img/avatar_1.jpg" alt="img1" />
+              </div>
+              <div>
+                <strong>Michele</strong>
+                <div class="last-access">Ultimo accesso oggi alle</div>
+              </div>
+            </div>
+
+            <ul>
+              <li><i class="fa-solid fa-magnifying-glass"></i></li>
+              <li><i class="fa-solid fa-paperclip"></i></li>
+              <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+            </ul>
+          </header>
+          <!-- /header of right-part -->
+
+          <!-- message zone of right-part -->
+          <div class="message-zone"></div>
+          <!-- /message zone of right-part -->
+
+          <!-- footer of right-part -->
+          <footer>
+            <i class="fa-regular fa-face-smile"></i>
+            <input type="text" placeholder="Scrivi un messaggio" />
+            <i class="fa-solid fa-microphone"></i>
+          </footer>
+          <!-- /footer of right-part -->
+        </div>
+        <!-- /right part of the container -->
+      </div>
+    </div>
+
+    <!-- Vue  -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- My JS -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
