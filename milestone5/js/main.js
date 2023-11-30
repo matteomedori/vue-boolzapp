@@ -30,6 +30,7 @@ createApp({
               status: "received",
             },
           ],
+          index: 0,
         },
         {
           name: "Fabio",
@@ -52,6 +53,7 @@ createApp({
               status: "sent",
             },
           ],
+          index: 1,
         },
         {
           name: "Samuele",
@@ -74,6 +76,7 @@ createApp({
               status: "received",
             },
           ],
+          index: 2,
         },
         {
           name: "Alessandro B.",
@@ -91,6 +94,7 @@ createApp({
               status: "received",
             },
           ],
+          index: 3,
         },
         {
           name: "Alessandro L.",
@@ -108,6 +112,7 @@ createApp({
               status: "received",
             },
           ],
+          index: 4,
         },
         {
           name: "Claudia",
@@ -130,6 +135,7 @@ createApp({
               status: "sent",
             },
           ],
+          index: 5,
         },
         {
           name: "Federico",
@@ -147,6 +153,7 @@ createApp({
               status: "received",
             },
           ],
+          index: 6,
         },
         {
           name: "Davide",
@@ -169,6 +176,7 @@ createApp({
               status: "received",
             },
           ],
+          index: 7,
         },
       ],
     };

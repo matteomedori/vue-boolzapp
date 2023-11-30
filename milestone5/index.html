@@ -83,7 +83,7 @@
           <ul class="contact-list">
             <li
               v-for="(contact,index) in filteredContact()"
-              @click="changeChat(index)"
+              @click="changeChat(contact.index)"
               :class="{active : index===activeContact}"
             >
               <div class="my-component-rounded">
