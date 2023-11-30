@@ -88,7 +88,11 @@
               <div class="my-component-rounded">
                 <img :src="contact.avatar" alt="" />
               </div>
-              <h2>{{contact.name}}</h2>
+              <div class="user-info">
+                <h2>{{contact.name}}</h2>
+                <p class="last-access">Ultimo messaggio inviato</p>
+              </div>
+              <div class="time">12:00</div>
             </li>
           </ul>
           <!-- /list of contacts -->
@@ -124,7 +128,8 @@
                 v-for="message in contacts[activeContact].messages"
                 :class="message.status === 'sent' ? 'sent' : 'received'"
               >
-                {{message.message}}
+                <div class="text-message">{{message.message}}</div>
+                <div class="message-time">12:00</div>
               </li>
             </ul>
           </div>

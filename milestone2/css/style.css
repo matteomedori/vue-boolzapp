@@ -150,6 +150,9 @@ h2 {
   margin-top: 3px;
 }
 
+.user-info .last-access {
+  font-size: 14px;
+}
 .message-zone {
   flex-grow: 1;
   background-image: url(../img/mine.jpg);
@@ -190,8 +193,21 @@ footer > input {
 
 .container-message li {
   width: 300px;
-  padding: 20px 15px;
+  height: 55px;
+  padding: 2px 5px 5px 15px;
   border-radius: 10px;
+  display: flex;
+}
+
+.message-time {
+  align-self: flex-end;
+  margin-left: auto;
+  color: gray;
+  font-size: 10px;
+}
+
+.text-message {
+  align-self: center;
 }
 
 .sent {
@@ -206,4 +222,10 @@ footer > input {
 
 .active {
   background-color: #e9ebeb !important;
+}
+
+.time {
+  margin-left: auto;
+  font-size: 12px;
+  color: gray;
 }
