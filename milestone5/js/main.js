@@ -7,6 +7,7 @@ createApp({
     return {
       activeContact: 0,
       messageWithDropdown: null,
+      dropdownHeader: false,
       newMessage: "",
       nameSearch: "",
       dropdown: false,
@@ -189,6 +190,7 @@ createApp({
     changeChat(index) {
       this.activeContact = index;
       this.messageWithDropdown = null;
+      this.dropdownHeader = false;
     },
     sendMessage() {
       if (this.newMessage.trim() !== "") {
@@ -227,15 +229,28 @@ createApp({
       }
     },
     showDrop(index) {
-      // this.dropdown = !this.dropdown;
       if (this.messageWithDropdown === null) this.messageWithDropdown = index;
       else {
         this.messageWithDropdown = null;
       }
-      console.log(index);
     },
     deleteMessage(index) {
-      this.contacts[this.activeContact].messages.splice(index, 1);
+      if (this.contacts[this.activeContact].messages[index].status === "sent") {
+        this.contacts[this.activeContact].messages.splice(index, 1);
+        this.messageWithDropdown = null;
+      }
+    },
+    changeDropDownHeader() {
+      this.dropdownHeader = !this.dropdownHeader;
+    },
+    deleteChat() {
+      for (let i = this.activeContact; i < this.contacts.length; i++) {
+        this.contacts[i].index--;
+      }
+      this.contacts.splice(this.activeContact, 1);
+    },
+    deleteAllMessages() {
+      // to-do
     },
   },
 }).mount("#app");

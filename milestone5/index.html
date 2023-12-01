@@ -138,7 +138,22 @@
                 <a href="#"><i class="fa-solid fa-paperclip"></i></a>
               </li>
               <li>
-                <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                <a href="#"
+                  ><i
+                    @click="changeDropDownHeader"
+                    class="dropbtn fa-solid fa-ellipsis-vertical"
+                  ></i
+                ></a>
+                <div class="dropdown">
+                  <div
+                    id="myDropdown"
+                    class="dropdown-header"
+                    :class="dropdownHeader === true ? 'show' : ''"
+                  >
+                    <a href="#" @click="deleteAllMessages">Delete messages</a>
+                    <a href="#" @click="deleteChat">Delete chat</a>
+                  </div>
+                </div>
               </li>
             </ul>
           </header>
