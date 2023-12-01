@@ -77,12 +77,15 @@ header ul {
   list-style: none;
   display: flex;
   gap: 20px;
-  color: #b1b1b1;
   font-size: 20px;
 }
 
+header ul a {
+  color: #b1b1b1;
+}
+
 .left-part .left-header,
-.right-part .left-header {
+.right-part .right-header {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -90,6 +93,10 @@ header ul {
 
 h2 {
   font-size: 18px;
+}
+
+input {
+  outline: 0;
 }
 
 /* 
@@ -219,6 +226,10 @@ footer > input {
   border: none;
   border-radius: 5px;
   padding-left: 10px;
+}
+
+.fa-paper-plane {
+  cursor: pointer;
 }
 
 .container-message {

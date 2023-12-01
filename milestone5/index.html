@@ -45,9 +45,15 @@
 
             <!-- header right: list of fonts awesome -->
             <ul>
-              <li><i class="fa-solid fa-circle-notch"></i></li>
-              <li><i class="fa-solid fa-message"></i></li>
-              <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+              <li>
+                <a href="#"><i class="fa-solid fa-circle-notch"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-solid fa-message"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+              </li>
             </ul>
             <!-- /header right: list of fonts awesome -->
           </header>
@@ -84,7 +90,7 @@
             <li
               v-for="(contact,index) in filteredContact()"
               @click="changeChat(contact.index)"
-              :class="{active : index===activeContact}"
+              :class="{active : contact.index===activeContact}"
             >
               <div class="my-component-rounded">
                 <img :src="contact.avatar" alt="" />
@@ -109,20 +115,31 @@
         <div class="right-part">
           <!-- header of right-part -->
           <header>
-            <div class="left-header">
+            <div class="right-header">
               <div class="my-component-rounded">
                 <img :src="contacts[activeContact].avatar" alt="img1" />
               </div>
               <div>
                 <strong>{{contacts[activeContact].name}}</strong>
-                <div class="last-access">Ultimo accesso oggi alle 12:00</div>
+                <div class="last-access" v-if="contactStatus === ''">
+                  Ultimo accesso alle
+                  {{contacts[activeContact].messages[contacts[activeContact].messages.length
+                  - 1].date.substring(11,16)}}
+                </div>
+                <div class="last-access" v-else>{{ contactStatus }}</div>
               </div>
             </div>
 
             <ul>
-              <li><i class="fa-solid fa-magnifying-glass"></i></li>
-              <li><i class="fa-solid fa-paperclip"></i></li>
-              <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+              <li>
+                <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-solid fa-paperclip"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+              </li>
             </ul>
           </header>
           <!-- /header of right-part -->
@@ -139,12 +156,15 @@
                   {{ message.date.substring(11,16) }}
                 </div>
                 <!-- dropdown -->
-                <i @click="showDrop" class="dropbtn fa-solid fa-angle-down"></i>
+                <i
+                  @click="showDrop(index)"
+                  class="dropbtn fa-solid fa-angle-down"
+                ></i>
                 <div class="dropdown">
                   <div
                     id="myDropdown"
                     class="dropdown-content"
-                    :class="dropdown ? 'show' : ''"
+                    :class="messageWithDropdown === index ? 'show' : ''"
                   >
                     <a href="#">Message info</a>
                     <a @click="deleteMessage(index)" href="#">Delete message</a>
@@ -165,7 +185,8 @@
               v-model="newMessage"
               @keyup.enter="sendMessage"
             />
-            <i class="fa-solid fa-microphone"></i>
+            <i class="fa-solid fa-microphone" v-if="newMessage === ''"></i>
+            <i class="fa-solid fa-paper-plane" v-else @click="sendMessage"></i>
           </footer>
           <!-- /footer of right-part -->
         </div>

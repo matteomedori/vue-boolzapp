@@ -6,9 +6,12 @@ createApp({
   data() {
     return {
       activeContact: 0,
+      messageWithDropdown: null,
       newMessage: "",
       nameSearch: "",
       dropdown: false,
+      randomAnswer: ["ok", "va bene", "sono d'accordo con te", "ci sono"],
+      contactStatus: "",
       contacts: [
         {
           name: "Michele",
@@ -194,15 +197,24 @@ createApp({
           status: "sent",
         });
         this.newMessage = "";
-        setTimeout(this.messageBack, 1000);
+        this.contactStatus = "sta scrivendo...";
+        setTimeout(this.messageBack, 2000);
       }
     },
     messageBack() {
       this.contacts[this.activeContact].messages.push({
         date: formatDate(new Date()),
-        message: "ok",
+        message:
+          this.randomAnswer[
+            Math.floor(Math.random() * this.randomAnswer.length)
+          ],
         status: "received",
       });
+      this.contactStatus = "online";
+      setTimeout(this.noMoreOnline, 2000);
+    },
+    noMoreOnline() {
+      this.contactStatus = "";
     },
     filteredContact() {
       if (this.nameSearch.trim() !== "") {
@@ -213,8 +225,13 @@ createApp({
         return this.contacts;
       }
     },
-    showDrop() {
-      this.dropdown = !this.dropdown;
+    showDrop(index) {
+      // this.dropdown = !this.dropdown;
+      if (this.messageWithDropdown === null) this.messageWithDropdown = index;
+      else {
+        this.messageWithDropdown = null;
+      }
+      console.log(index);
     },
     deleteMessage(index) {
       this.contacts[this.activeContact].messages.splice(index, 1);
