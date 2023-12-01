@@ -8,6 +8,7 @@ createApp({
       activeContact: 0,
       newMessage: "",
       nameSearch: "",
+      dropdown: false,
       contacts: [
         {
           name: "Michele",
@@ -211,6 +212,12 @@ createApp({
       } else {
         return this.contacts;
       }
+    },
+    showDrop() {
+      this.dropdown = !this.dropdown;
+    },
+    deleteMessage(index) {
+      this.contacts[this.activeContact].messages.splice(index, 1);
     },
   },
 }).mount("#app");

@@ -115,7 +115,7 @@
               </div>
               <div>
                 <strong>{{contacts[activeContact].name}}</strong>
-                <div class="last-access">Ultimo accesso oggi alle</div>
+                <div class="last-access">Ultimo accesso oggi alle 12:00</div>
               </div>
             </div>
 
@@ -131,13 +131,26 @@
           <div class="message-zone">
             <ul class="container-message">
               <li
-                v-for="message in contacts[activeContact].messages"
+                v-for="message,index in contacts[activeContact].messages"
                 :class="message.status === 'sent' ? 'sent' : 'received'"
               >
                 <div class="text-message">{{ message.message }}</div>
                 <div class="message-time">
                   {{ message.date.substring(11,16) }}
                 </div>
+                <!-- dropdown -->
+                <i @click="showDrop" class="dropbtn fa-solid fa-angle-down"></i>
+                <div class="dropdown">
+                  <div
+                    id="myDropdown"
+                    class="dropdown-content"
+                    :class="dropdown ? 'show' : ''"
+                  >
+                    <a href="#">Message info</a>
+                    <a @click="deleteMessage(index)" href="#">Delete message</a>
+                  </div>
+                </div>
+                <!-- /dropdown -->
               </li>
             </ul>
           </div>

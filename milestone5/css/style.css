@@ -1,8 +1,20 @@
+/* 
+----------
+RESET
+----------
+*/
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* 
+----------
+COMMON
+----------
+*/
 
 [v-cloak] {
   display: none;
@@ -76,6 +88,16 @@ header ul {
   gap: 5px;
 }
 
+h2 {
+  font-size: 18px;
+}
+
+/* 
+----------
+LEFT-PART
+----------
+*/
+
 .notification {
   background-color: #8edafc;
   display: flex;
@@ -146,10 +168,6 @@ header ul {
   background-color: white;
 }
 
-h2 {
-  font-size: 18px;
-}
-
 .last-access {
   color: gray;
   margin-top: 3px;
@@ -158,6 +176,23 @@ h2 {
 .user-info .last-access {
   font-size: 14px;
 }
+
+.active {
+  background-color: #e9ebeb !important;
+}
+
+.time {
+  margin-left: auto;
+  font-size: 12px;
+  color: gray;
+}
+
+/* 
+----------
+RIGHT-PART
+----------
+*/
+
 .message-zone {
   flex-grow: 1;
   background-image: url(../img/mine.jpg);
@@ -226,12 +261,44 @@ footer > input {
   background-color: white;
 }
 
-.active {
-  background-color: #e9ebeb !important;
+.container-message .fa-angle-down {
+  align-self: center;
+  color: gray;
+  font-size: 18px;
+  margin: 0 5px;
 }
 
-.time {
-  margin-left: auto;
-  font-size: 12px;
-  color: gray;
+.dropbtn {
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+  top: 30px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
 }
