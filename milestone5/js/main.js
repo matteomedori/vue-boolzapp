@@ -188,6 +188,7 @@ createApp({
   methods: {
     changeChat(index) {
       this.activeContact = index;
+      this.messageWithDropdown = null;
     },
     sendMessage() {
       if (this.newMessage.trim() !== "") {
